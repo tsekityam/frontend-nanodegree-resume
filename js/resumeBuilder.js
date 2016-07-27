@@ -90,6 +90,7 @@ var bio = {
 
     $("#header").prepend(HTMLheaderRole.replace("%data%", this.role));
     $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
+    $("#header").prepend(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
     $("#header").prepend(HTMLbioPic.replace("%data%", this.biopic));
 
     $("#topContacts").append(HTMLemail.replace(/%data%/g, this.contacts.email));
