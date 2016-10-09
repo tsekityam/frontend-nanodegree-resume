@@ -170,6 +170,10 @@ ul {
   color: white;
 }
 
+.profile-link:hover {
+    color: #1199c3;
+}
+
 .project-image {
   width: 300px;
   height: 200px;

@@ -152,11 +152,3 @@ bio.display();
 projects.display();
 education.display();
 $("#mapDiv").append(googleMap);
-
-$(function() {
-  $(".profile-link").hover(function() {
-    $(this).css("color", "#1199c3");
-  }, function() {
-    $(this).css("color", "white");
-  });
-});
