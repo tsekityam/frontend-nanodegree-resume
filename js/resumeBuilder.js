@@ -84,7 +84,6 @@ var profile = {
   }
 };
 
-
 view = {
   init: function() {
     $("#mapDiv").append(googleMap());
