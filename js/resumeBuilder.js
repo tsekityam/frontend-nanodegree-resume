@@ -87,7 +87,7 @@ var profile = {
 
 view = {
   init: function() {
-    $("#mapDiv").append(googleMap);
+    $("#mapDiv").append(googleMap());
   },
   display: function(profile) {
     this.displayBio(profile.bio);
@@ -107,10 +107,10 @@ view = {
     this.displayFooterContacts(bio.contacts);
   },
   displayHeader: function(bio) {
-    this.$header.prepend(HTMLheaderRole.replace("%data%", bio.role));
-    this.$header.prepend(HTMLheaderName.replace("%data%", bio.name));
-    this.$header.prepend(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
-    this.$header.prepend(HTMLbioPic.replace("%data%", bio.biopic));
+    this.$header.prepend(HTMLheaderRole(bio.role));
+    this.$header.prepend(HTMLheaderName(bio.name));
+    this.$header.prepend(HTMLwelcomeMsg(bio.welcomeMessage));
+    this.$header.prepend(HTMLbioPic(bio.biopic));
   },
   displaySkills: function(skills) {
     if (skills.length > 0) {
@@ -122,21 +122,21 @@ view = {
     }
   },
   displaySkill: function(skill) {
-    this.$skill.append(HTMLskills.replace("%data%", skill));
+    this.$skill.append(HTMLskills(skill));
   },
   displayTopContacts: function(contacts) {
-    this.$topContacts.append(HTMLemail.replace(/%data%/g, contacts.email));
-    this.$topContacts.append(HTMLtwitter.replace(/%data%/g, contacts.twitter));
-    this.$topContacts.append(HTMLgithub.replace(/%data%/g, contacts.github));
-    this.$topContacts.append(HTMLmobile.replace("%data%", contacts.mobile));
-    this.$topContacts.append(HTMLlocation.replace("%data%", contacts.location));
+    this.$topContacts.append(HTMLemail(contacts.email));
+    this.$topContacts.append(HTMLtwitter(contacts.twitter));
+    this.$topContacts.append(HTMLgithub(contacts.github));
+    this.$topContacts.append(HTMLmobile(contacts.mobile));
+    this.$topContacts.append(HTMLlocation(contacts.location));
   },
   displayFooterContacts: function(contacts) {
-    this.$footerContacts.append(HTMLemail.replace(/%data%/g, contacts.email));
-    this.$footerContacts.append(HTMLtwitter.replace(/%data%/g, contacts.twitter));
-    this.$footerContacts.append(HTMLgithub.replace(/%data%/g, contacts.github));
-    this.$footerContacts.append(HTMLmobile.replace("%data%", contacts.mobile));
-    this.$footerContacts.append(HTMLlocation.replace("%data%", contacts.location));
+    this.$footerContacts.append(HTMLemail(contacts.email));
+    this.$footerContacts.append(HTMLtwitter(contacts.twitter));
+    this.$footerContacts.append(HTMLgithub(contacts.github));
+    this.$footerContacts.append(HTMLmobile(contacts.mobile));
+    this.$footerContacts.append(HTMLlocation(contacts.location));
   },
   // MARK: displayWork
   $workExperience: $("#workExperience"),
@@ -147,13 +147,13 @@ view = {
     });
   },
   displayJob: function(job) {
-    this.$workExperience.append(HTMLworkStart);
+    this.$workExperience.append(HTMLworkStart());
     this.$lastWorkEntry = $(".work-entry:last");
 
-    this.$lastWorkEntry.append(HTMLworkEmployer.replace("%data%", job.employer).replace("%url%", job.url) + HTMLworkTitle.replace("%data%", job.title));
-    this.$lastWorkEntry.append(HTMLworkDates.replace("%data%", job.dates));
-    this.$lastWorkEntry.append(HTMLworkLocation.replace("%data%", job.location));
-    this.$lastWorkEntry.append(HTMLworkDescription.replace("%data%", job.description));
+    this.$lastWorkEntry.append(HTMLworkEmployer(job.employer).replace("%url%", job.url) + HTMLworkTitle(job.title));
+    this.$lastWorkEntry.append(HTMLworkDates(job.dates));
+    this.$lastWorkEntry.append(HTMLworkLocation(job.location));
+    this.$lastWorkEntry.append(HTMLworkDescription(job.description));
   },
   // MARK: display project
   $project: $("#projects"),
@@ -164,18 +164,18 @@ view = {
     });
   },
   displayProject: function(project) {
-    this.$project.append(HTMLprojectStart);
+    this.$project.append(HTMLprojectStart());
     this.$lastProjectEntry = $(".project-entry:last");
 
-    this.$lastProjectEntry.append(HTMLprojectTitle.replace("%data%", project.title).replace("%url%", project.url));
-    this.$lastProjectEntry.append(HTMLprojectDates.replace("%data%", project.dates));
-    this.$lastProjectEntry.append(HTMLprojectDescription.replace("%data%", project.description));
+    this.$lastProjectEntry.append(HTMLprojectTitle(project.title).replace("%url%", project.url));
+    this.$lastProjectEntry.append(HTMLprojectDates(project.dates));
+    this.$lastProjectEntry.append(HTMLprojectDescription(project.description));
     project.images.forEach(function(image) {
       view.displayProjectImage(image);
     });
   },
   displayProjectImage: function(image) {
-    this.$lastProjectEntry.append(HTMLprojectImage.replace("%data%", image));
+    this.$lastProjectEntry.append(HTMLprojectImage(image));
   },
   // MARK: display Education
   $education: $("#education"),
@@ -190,26 +190,26 @@ view = {
     });
   },
   displaySchool: function(school) {
-    this.$education.append(HTMLschoolStart);
+    this.$education.append(HTMLschoolStart());
 
-    this.$lastEducationEntry.append(HTMLschoolName.replace("%data%", school.name).replace("%url%", school.url) + HTMLschoolDegree.replace("%data%", school.degree));
-    this.$lastEducationEntry.append(HTMLschoolDates.replace("%data%", school.dates));
-    this.$lastEducationEntry.append(HTMLschoolLocation.replace("%data%", school.location));
+    this.$lastEducationEntry.append(HTMLschoolName(school.name, school.url) + HTMLschoolDegree(school.degree));
+    this.$lastEducationEntry.append(HTMLschoolDates(school.dates));
+    this.$lastEducationEntry.append(HTMLschoolLocation(school.location));
     school.majors.forEach(function(major) {
       view.displayMajor(major);
     });
   },
   displayMajor: function(major) {
-    this.$lastEducationEntry.append(HTMLschoolMajor.replace("%data%", major));
+    this.$lastEducationEntry.append(HTMLschoolMajor(major));
   },
   displayOnlineCourse: function (onlineCourse) {
-    this.$education.append(HTMLonlineClasses);
-    this.$education.append(HTMLschoolStart);
+    this.$education.append(HTMLonlineClasses());
+    this.$education.append(HTMLschoolStart());
     this.$lastEducationEntry = $(".education-entry:last");
 
-    this.$lastEducationEntry.append(HTMLonlineTitle.replace("%data%", onlineCourse.title).replace("%url%", onlineCourse.schoolUrl) + HTMLonlineSchool.replace("%data%", onlineCourse.school));
-    this.$lastEducationEntry.append(HTMLonlineDates.replace("%data%", onlineCourse.dates));
-    this.$lastEducationEntry.append(HTMLonlineURL.replace(/%data%/g, onlineCourse.courseUrl));
+    this.$lastEducationEntry.append(HTMLonlineTitle(onlineCourse.title, onlineCourse.schoolUrl) + HTMLonlineSchool(onlineCourse.school));
+    this.$lastEducationEntry.append(HTMLonlineDates(onlineCourse.dates));
+    this.$lastEducationEntry.append(HTMLonlineURL(onlineCourse.courseUrl));
 
   }
 }

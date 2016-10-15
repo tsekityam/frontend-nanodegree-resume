@@ -12,51 +12,125 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span class="role">%data%</span><hr>';
+function HTMLheaderName(data) {
+  return '<h1 id="name">%data%</h1>'.replace("%data%", data);
+}
+function HTMLheaderRole(data) {
+  return '<span class="role">%data%</span><hr>'.replace("%data%", data);
+}
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text"><a class="profile-link" href="mailto://%data%">%data%</a></span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text"><a class="profile-link" href="https://www.twitter.com/%data%">%data%</a></span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text"><a class="profile-link" href="https://www.github.com/%data%">%data%</a></span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+function HTMLcontactGeneric(data) {
+  return '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>'.replace("%data%", data);
+}
+function HTMLmobile(data) {
+  return '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>'.replace("%data%", data);
+}
+function HTMLemail(data) {
+  return '<li class="flex-item"><span class="orange-text">email</span><span class="white-text"><a class="profile-link" href="mailto://%data%">%data%</a></span></li>'.replace(/%data%/g, data);
+}
+function HTMLtwitter(data) {
+  return '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text"><a class="profile-link" href="https://www.twitter.com/%data%">%data%</a></span></li>'.replace(/%data%/g, data);
+}
+function HTMLgithub(data) {
+  return '<li class="flex-item"><span class="orange-text">github</span><span class="white-text"><a class="profile-link" href="https://www.github.com/%data%">%data%</a></span></li>'.replace(/%data%/g, data);
+}
+function HTMLblog(data) {
+  return '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>'.replace("%data%", data);
+}
+function HTMLlocation(data) {
+  return '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>'.replace("%data%", data);
+}
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+function HTMLbioPic(data) {
+  return '<img src="%data%" class="biopic">'.replace("%data%", data);
+}
+function HTMLwelcomeMsg(data) {
+  return '<span class="welcome-message">%data%</span>'.replace("%data%", data);
+}
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+function HTMLskillsStart(data) {
+  return '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>'.replace("%data%", data);
+}
+function HTMLskills(data) {
+  return '<li class="flex-item"><span class="white-text">%data%</span></li>'.replace("%data%", data);
+}
 
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="%url%">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+function HTMLworkStart(data) {
+  return '<div class="work-entry"></div>'.replace("%data%", data);
+}
+function HTMLworkEmployer(data) {
+  return '<a href="%url%">%data%'.replace("%data%", data);
+}
+function HTMLworkTitle(data) {
+  return ' - %data%</a>'.replace("%data%", data);
+}
+function HTMLworkDates(data) {
+  return '<div class="date-text">%data%</div>'.replace("%data%", data);
+}
+function HTMLworkLocation(data) {
+  return '<div class="location-text">%data%</div>'.replace("%data%", data);
+}
+function HTMLworkDescription(data) {
+  return '<p><br>%data%</p>'.replace("%data%", data);
+}
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="%url%">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img class="project-image" src="%data%">';
+function HTMLprojectStart(data) {
+  return '<div class="project-entry"></div>'.replace("%data%", data);
+}
+function HTMLprojectTitle(data) {
+  return '<a href="%url%">%data%</a>'.replace("%data%", data);
+}
+function HTMLprojectDates(data) {
+  return '<div class="date-text">%data%</div>'.replace("%data%", data);
+}
+function HTMLprojectDescription(data) {
+  return '<p><br>%data%</p>'.replace("%data%", data);
+}
+function HTMLprojectImage(data) {
+  return '<img class="project-image" src="%data%">'.replace("%data%", data);
+}
 
-var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="%url%">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+function HTMLschoolStart(data) {
+  return '<div class="education-entry"></div>'.replace("%data%", data);
+}
+function HTMLschoolName(data, url) {
+  return '<a href="%url%">%data%'.replace("%data%", data).replace("%url%", url);
+}
+function HTMLschoolDegree(data) {
+  return ' -- %data%</a>'.replace("%data%", data);
+}
+function HTMLschoolDates(data) {
+  return '<div class="date-text">%data%</div>'.replace("%data%", data);
+}
+function HTMLschoolLocation(data) {
+  return '<div class="location-text">%data%</div>'.replace("%data%", data);
+}
+function HTMLschoolMajor(data) {
+  return '<em><br>Major: %data%</em>'.replace("%data%", data);
+}
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="%url%">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="%data%">%data%</a>';
+function HTMLonlineClasses() {
+  return '<h3>Online Classes</h3>';
+}
+function HTMLonlineTitle(data, url) {
+  return '<a href="%url%">%data%'.replace("%data%", data).replace("%url%", url);
+}
+function HTMLonlineSchool(data) {
+  return ' - %data%</a>'.replace("%data%", data);
+}
+function HTMLonlineDates(data) {
+  return '<div class="date-text">%data%</div>'.replace("%data%", data);
+}
+function HTMLonlineURL(data) {
+  return '<br><a href="%data%">%data%</a>'.replace(/%data%/g, data);
+}
 
-var internationalizeButton = '<button>Internationalize</button>';
-var googleMap = '<div id="map"></div>';
+function internationalizeButton() {
+  return '<button>Internationalize</button>';
+}
+function googleMap() {
+  return '<div id="map"></div>';
+}
 
 
 /*
